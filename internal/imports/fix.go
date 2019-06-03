@@ -18,6 +18,7 @@ import (
 	"os/exec"
 	"path"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strconv"
 	"strings"
@@ -40,14 +41,22 @@ var importToGroup = []func(env *ProcessEnv, importPath string) (num int, ok bool
 		}
 		for _, p := range strings.Split(env.LocalPrefix, ",") {
 			if strings.HasPrefix(importPath, p) || strings.TrimSuffix(p, "/") == importPath {
+				if len(env.ImportGroups) > 0 {
+					// If enabled, the local group number should be greater than any custom
+					// import group.
+					return env.ImportGroups[len(env.ImportGroups)-1].Group + 2, true
+				}
 				return 3, true
 			}
 		}
 		return
 	},
-	func(_ *ProcessEnv, importPath string) (num int, ok bool) {
-		if strings.HasPrefix(importPath, "appengine") {
-			return 2, true
+	func(env *ProcessEnv, importPath string) (num int, ok bool) {
+		for _, group := range env.ImportGroups {
+			if group.RegexExp.MatchString(importPath) {
+				// Custom group numbers should always be greater than 1 (the thirdparty import catch-all group)
+				return group.Group + 1, true
+			}
 		}
 		return
 	},
@@ -498,11 +507,27 @@ func fixImportsDefault(fset *token.FileSet, f *ast.File, filename string, env *P
 	return nil
 }
 
+type ImportGroup struct {
+	Group int    `json:"group"`
+	Regex string `json:"regex"`
+
+	RegexExp *regexp.Regexp
+}
+
+type ByImportGroupNum []*ImportGroup
+
+func (g ByImportGroupNum) Len() int           { return len(g) }
+func (g ByImportGroupNum) Less(i, j int) bool { return g[i].Group < g[j].Group }
+func (g ByImportGroupNum) Swap(i, j int)      { g[i], g[j] = g[j], g[i] }
+
 // ProcessEnv contains environment variables and settings that affect the use of
 // the go command, the go/build package, etc.
 type ProcessEnv struct {
 	LocalPrefix string
 	Debug       bool
+
+	PreserveGroups bool
+	ImportGroups   []*ImportGroup
 
 	// If non-empty, these will be used instead of the
 	// process-wide values.
