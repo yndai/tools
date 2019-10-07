@@ -5,8 +5,8 @@ import (
 	"go/ast"
 	"go/token"
 
-	"golang.org/x/tools/internal/lsp/source"
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/internal/lsp/source"
+	"github.com/yndai/tools/internal/span"
 )
 
 // goFile holds all of the information we know about a Go file.

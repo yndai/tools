@@ -11,9 +11,9 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/internal/lsp/cmd"
-	"golang.org/x/tools/internal/lsp/tests"
-	"golang.org/x/tools/internal/tool"
+	"github.com/yndai/tools/internal/lsp/cmd"
+	"github.com/yndai/tools/internal/lsp/tests"
+	"github.com/yndai/tools/internal/tool"
 )
 
 var formatModes = [][]string{

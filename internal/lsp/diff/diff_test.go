@@ -14,7 +14,7 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/internal/lsp/diff"
+	"github.com/yndai/tools/internal/lsp/diff"
 )
 
 const (

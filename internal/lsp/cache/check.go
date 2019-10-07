@@ -13,9 +13,9 @@ import (
 	"go/token"
 	"go/types"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/go/analysis"
+	"github.com/yndai/tools/go/packages"
+	"github.com/yndai/tools/internal/span"
 )
 
 func (v *view) parse(ctx context.Context, f *goFile) ([]packages.Error, error) {

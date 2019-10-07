@@ -19,13 +19,13 @@ import (
 	"strings"
 	"sync"
 
-	"golang.org/x/tools/internal/jsonrpc2"
-	"golang.org/x/tools/internal/lsp"
-	"golang.org/x/tools/internal/lsp/cache"
-	"golang.org/x/tools/internal/lsp/protocol"
-	"golang.org/x/tools/internal/lsp/source"
-	"golang.org/x/tools/internal/span"
-	"golang.org/x/tools/internal/tool"
+	"github.com/yndai/tools/internal/jsonrpc2"
+	"github.com/yndai/tools/internal/lsp"
+	"github.com/yndai/tools/internal/lsp/cache"
+	"github.com/yndai/tools/internal/lsp/protocol"
+	"github.com/yndai/tools/internal/lsp/source"
+	"github.com/yndai/tools/internal/span"
+	"github.com/yndai/tools/internal/tool"
 )
 
 // Application is the main application as passed to tool.Main

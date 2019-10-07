@@ -9,8 +9,8 @@ import (
 	"os"
 	"testing"
 
-	"golang.org/x/tools/go/analysis/analysistest"
-	"golang.org/x/tools/go/analysis/passes/buildssa"
+	"github.com/yndai/tools/go/analysis/analysistest"
+	"github.com/yndai/tools/go/analysis/passes/buildssa"
 )
 
 func Test(t *testing.T) {

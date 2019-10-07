@@ -10,8 +10,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"golang.org/x/tools/internal/lsp/source"
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/internal/lsp/source"
+	"github.com/yndai/tools/internal/span"
 )
 
 // viewFile extends source.File with helper methods for the view package.

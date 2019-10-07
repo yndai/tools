@@ -11,9 +11,9 @@ import (
 	"strings"
 	"sync"
 
-	"golang.org/x/tools/internal/lsp/source"
-	"golang.org/x/tools/internal/lsp/xlog"
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/internal/lsp/source"
+	"github.com/yndai/tools/internal/lsp/xlog"
+	"github.com/yndai/tools/internal/span"
 )
 
 type session struct {

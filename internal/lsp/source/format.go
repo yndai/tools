@@ -11,11 +11,11 @@ import (
 	"fmt"
 	"go/format"
 
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/imports"
-	"golang.org/x/tools/internal/lsp/diff"
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/go/ast/astutil"
+	"github.com/yndai/tools/go/packages"
+	"github.com/yndai/tools/imports"
+	"github.com/yndai/tools/internal/lsp/diff"
+	"github.com/yndai/tools/internal/span"
 )
 
 // Format formats a file with a given range.

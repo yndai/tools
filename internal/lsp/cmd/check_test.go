@@ -10,9 +10,9 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/internal/lsp/tests"
-	"golang.org/x/tools/internal/span"
-	"golang.org/x/tools/internal/tool"
+	"github.com/yndai/tools/internal/lsp/tests"
+	"github.com/yndai/tools/internal/span"
+	"github.com/yndai/tools/internal/tool"
 )
 
 func (r *runner) Diagnostics(t *testing.T, data tests.Diagnostics) {

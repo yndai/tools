@@ -9,8 +9,8 @@ import (
 	"go/ast"
 	"go/token"
 
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/go/ast/astutil"
+	"github.com/yndai/tools/internal/span"
 )
 
 func Highlight(ctx context.Context, f GoFile, pos token.Pos) []span.Span {

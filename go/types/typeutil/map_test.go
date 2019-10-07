@@ -13,7 +13,7 @@ import (
 	"go/types"
 	"testing"
 
-	"golang.org/x/tools/go/types/typeutil"
+	"github.com/yndai/tools/go/types/typeutil"
 )
 
 var (

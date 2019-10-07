@@ -6,8 +6,8 @@ import (
 	"context"
 	"encoding/json"
 
-	"golang.org/x/tools/internal/jsonrpc2"
-	"golang.org/x/tools/internal/lsp/xlog"
+	"github.com/yndai/tools/internal/jsonrpc2"
+	"github.com/yndai/tools/internal/lsp/xlog"
 )
 
 type Client interface {

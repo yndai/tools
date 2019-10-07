@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"time"
 
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/internal/span"
 )
 
 // check implements the check verb for gopls.

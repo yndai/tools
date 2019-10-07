@@ -27,9 +27,9 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/gopathwalk"
+	"github.com/yndai/tools/go/ast/astutil"
+	"github.com/yndai/tools/go/packages"
+	"github.com/yndai/tools/internal/gopathwalk"
 )
 
 // importToGroup is a list of functions which map from an import path to

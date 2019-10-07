@@ -17,9 +17,9 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/buildutil"
-	"golang.org/x/tools/go/internal/gcimporter"
-	"golang.org/x/tools/go/loader"
+	"github.com/yndai/tools/go/buildutil"
+	"github.com/yndai/tools/go/internal/gcimporter"
+	"github.com/yndai/tools/go/loader"
 )
 
 func TestBExportData_stdlib(t *testing.T) {

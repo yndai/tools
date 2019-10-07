@@ -1,8 +1,8 @@
 package b
 
 import (
-	myFoo "golang.org/x/tools/internal/lsp/foo" //@godef("foo", PackageFoo),godef("myFoo", PackageFoo)
-	"golang.org/x/tools/internal/lsp/godef/a"   //@mark(AImport, "\"")
+	myFoo "github.com/yndai/tools/internal/lsp/foo" //@godef("foo", PackageFoo),godef("myFoo", PackageFoo)
+	"github.com/yndai/tools/internal/lsp/godef/a"   //@mark(AImport, "\"")
 )
 
 type S1 struct { //@S1

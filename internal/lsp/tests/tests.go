@@ -18,11 +18,11 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/packages/packagestest"
-	"golang.org/x/tools/internal/lsp/source"
-	"golang.org/x/tools/internal/span"
-	"golang.org/x/tools/internal/txtar"
+	"github.com/yndai/tools/go/packages"
+	"github.com/yndai/tools/go/packages/packagestest"
+	"github.com/yndai/tools/internal/lsp/source"
+	"github.com/yndai/tools/internal/span"
+	"github.com/yndai/tools/internal/txtar"
 )
 
 // We hardcode the expected number of test cases to ensure that all tests
@@ -44,7 +44,7 @@ const (
 	overlayFileSuffix = ".overlay"
 	goldenFileSuffix  = ".golden"
 	inFileSuffix      = ".in"
-	testModule        = "golang.org/x/tools/internal/lsp"
+	testModule        = "github.com/yndai/tools/internal/lsp"
 )
 
 var updateGolden = flag.Bool("golden", false, "Update golden files")

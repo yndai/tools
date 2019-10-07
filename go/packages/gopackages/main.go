@@ -18,9 +18,9 @@ import (
 	"sort"
 	"strings"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/types/typeutil"
-	"golang.org/x/tools/internal/tool"
+	"github.com/yndai/tools/go/packages"
+	"github.com/yndai/tools/go/types/typeutil"
+	"github.com/yndai/tools/internal/tool"
 )
 
 func main() {

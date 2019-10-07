@@ -11,9 +11,9 @@ import (
 	"go/token"
 	"go/types"
 
-	"golang.org/x/tools/go/loader"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/ssa"
+	"github.com/yndai/tools/go/loader"
+	"github.com/yndai/tools/go/packages"
+	"github.com/yndai/tools/go/ssa"
 )
 
 // Packages creates an SSA program for a set of packages.

@@ -15,9 +15,9 @@ import (
 	"strings"
 	"text/scanner"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/internal/checker"
-	"golang.org/x/tools/go/packages"
+	"github.com/yndai/tools/go/analysis"
+	"github.com/yndai/tools/go/analysis/internal/checker"
+	"github.com/yndai/tools/go/packages"
 )
 
 // WriteFiles is a helper function that creates a temporary directory

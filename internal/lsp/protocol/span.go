@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"go/token"
 
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/internal/span"
 )
 
 type ColumnMapper struct {

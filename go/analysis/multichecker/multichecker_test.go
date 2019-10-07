@@ -9,9 +9,9 @@ import (
 	"runtime"
 	"testing"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/multichecker"
-	"golang.org/x/tools/go/analysis/passes/findcall"
+	"github.com/yndai/tools/go/analysis"
+	"github.com/yndai/tools/go/analysis/multichecker"
+	"github.com/yndai/tools/go/analysis/passes/findcall"
 )
 
 func main() {

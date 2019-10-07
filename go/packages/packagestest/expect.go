@@ -11,9 +11,9 @@ import (
 	"reflect"
 	"regexp"
 
-	"golang.org/x/tools/go/expect"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/go/expect"
+	"github.com/yndai/tools/go/packages"
+	"github.com/yndai/tools/internal/span"
 )
 
 const (

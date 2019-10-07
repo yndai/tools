@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/analysis/analysistest"
-	"golang.org/x/tools/go/analysis/passes/findcall"
+	"github.com/yndai/tools/go/analysis/analysistest"
+	"github.com/yndai/tools/go/analysis/passes/findcall"
 )
 
 func init() {
