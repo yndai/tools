@@ -8,6 +8,7 @@ import (
 	"flag"
 	"fmt"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"strings"
 	"testing"
@@ -18,10 +19,127 @@ import (
 var testDebug = flag.Bool("debug", false, "enable debug output")
 
 var tests = []struct {
-	name       string
-	formatOnly bool
-	in, out    string
+	name               string
+	formatOnly         bool
+	dontPreserveGroups bool
+	importGroups       []*ImportGroup
+	in, out            string
 }{
+	// Use custom import grouping
+	{
+		name:       "custom_import_groups",
+		formatOnly: true,
+		importGroups: []*ImportGroup{
+			{Group: 1, Regex: "^github.com/aws/.*"},
+			{Group: 2, Regex: "^github.com/myrepo/.*/generated/.*"},
+			{Group: 3, Regex: "^github.com/myrepo/.*"},
+		},
+		in: `package foo
+import (
+  "fmt"
+  "github.com/thirdparty"
+  "github.com/aws/aws-sdk-go-v2/aws"
+  "github.com/aws/aws-sdk-go-v2/aws/dynamodb"
+  "github.com/myrepo/internal/pkg/common"
+  "sync"
+  "github.com/myrepo/api/generated/go/common/v1"
+  "github.com/myrepo/api/generated/go/internal/v1"
+  "github.com/myrepo/lib/pkg/core"
+
+  "encoding"
+  "github.com/myrepo/lib/pkg/common"
+)
+func bar() {
+var b bytes.Buffer
+fmt.Println(b.String())
+}
+`,
+		out: `package foo
+
+import (
+	"fmt"
+	"sync"
+
+	"github.com/thirdparty"
+
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/aws/dynamodb"
+
+	"github.com/myrepo/api/generated/go/common/v1"
+	"github.com/myrepo/api/generated/go/internal/v1"
+
+	"github.com/myrepo/internal/pkg/common"
+	"github.com/myrepo/lib/pkg/core"
+
+	"encoding"
+
+	"github.com/myrepo/lib/pkg/common"
+)
+
+func bar() {
+	var b bytes.Buffer
+	fmt.Println(b.String())
+}
+`,
+	},
+
+	// Use custom import groups without preserving the original groupings
+	{
+		name:               "custom_import_groups_dont_preserve_groups",
+		formatOnly:         true,
+		dontPreserveGroups: true,
+		importGroups: []*ImportGroup{
+			{Group: 1, Regex: "^github.com/aws/.*"},
+			{Group: 2, Regex: "^github.com/myrepo/.*/generated/.*"},
+			{Group: 3, Regex: "^github.com/myrepo/.*"},
+		},
+		in: `package foo
+import (
+  "fmt"
+  "github.com/thirdparty"
+  "github.com/aws/aws-sdk-go-v2/aws"
+  "github.com/aws/aws-sdk-go-v2/aws/dynamodb"
+  "github.com/myrepo/internal/pkg/common"
+  "sync"
+  "github.com/myrepo/api/generated/go/common/v1"
+  "github.com/myrepo/api/generated/go/internal/v1"
+  "github.com/myrepo/lib/pkg/core"
+
+  "encoding"
+  "github.com/myrepo/lib/pkg/common"
+)
+func bar() {
+var b bytes.Buffer
+fmt.Println(b.String())
+}
+`,
+		out: `package foo
+
+import (
+	"encoding"
+	"fmt"
+	"sync"
+
+	"github.com/thirdparty"
+
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/aws/dynamodb"
+
+	"github.com/myrepo/api/generated/go/common/v1"
+	"github.com/myrepo/api/generated/go/internal/v1"
+
+	"github.com/myrepo/internal/pkg/common"
+	"github.com/myrepo/lib/pkg/common"
+	"github.com/myrepo/lib/pkg/core"
+)
+
+func bar() {
+	var b bytes.Buffer
+	fmt.Println(b.String())
+}
+`,
+	},
+
 	// Adding an import to an existing parenthesized import
 	{
 		name: "factored_imports_add",
@@ -1167,6 +1285,19 @@ func TestSimpleCases(t *testing.T) {
 				},
 			}.test(t, func(t *goimportTest) {
 				t.env.LocalPrefix = localPrefix
+				t.env.PreserveGroups = !tt.dontPreserveGroups
+				t.env.ImportGroups = tt.importGroups
+
+				for _, g := range tt.importGroups {
+					if g.RegexExp == nil {
+						r, err := regexp.Compile(g.Regex)
+						if err != nil {
+							t.Error("Error compiling group regex", err)
+						}
+						g.RegexExp = r
+					}
+				}
+
 				t.assertProcessEquals("golang.org/fake", "x.go", nil, options, tt.out)
 			})
 
@@ -1912,9 +2043,9 @@ const _ = pkg.X
 		module: packagestest.Module{
 			Name: "foo.com",
 			Files: fm{
+				"x/x.go":                                input,
 				"example/node_modules/pkg/a.go":         "package pkg\nconst X = 1",
 				"otherwise-longer/not_modules/pkg/a.go": "package pkg\nconst X = 1",
-				"x/x.go":                                input,
 			},
 		},
 	}.processTest(t, "foo.com", "x/x.go", nil, nil, want)

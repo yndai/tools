@@ -7,6 +7,7 @@ package main
 import (
 	"bufio"
 	"bytes"
+	"encoding/json"
 	"errors"
 	"flag"
 	"fmt"
@@ -18,8 +19,10 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"runtime/pprof"
+	"sort"
 	"strings"
 
 	"golang.org/x/tools/internal/imports"
@@ -27,10 +30,11 @@ import (
 
 var (
 	// main operation modes
-	list   = flag.Bool("l", false, "list files whose formatting differs from goimport's")
-	write  = flag.Bool("w", false, "write result to (source) file instead of stdout")
-	doDiff = flag.Bool("d", false, "display diffs instead of rewriting files")
-	srcdir = flag.String("srcdir", "", "choose imports as if source code is from `dir`. When operating on a single file, dir may instead be the complete file name.")
+	list        = flag.Bool("l", false, "list files whose formatting differs from goimport's")
+	write       = flag.Bool("w", false, "write result to (source) file instead of stdout")
+	doDiff      = flag.Bool("d", false, "display diffs instead of rewriting files")
+	srcdir      = flag.String("srcdir", "", "choose imports as if source code is from `dir`. When operating on a single file, dir may instead be the complete file name.")
+	groupConfig = flag.String("group-config", "", "json config file which defines the grouping of imports. Format is [{group: (positive number), regex: (import path regex)},...].")
 
 	verbose bool // verbose logging
 
@@ -56,6 +60,7 @@ func init() {
 	flag.BoolVar(&options.AllErrors, "e", false, "report all errors (not just the first 10 on different lines)")
 	flag.StringVar(&options.Env.LocalPrefix, "local", "", "put imports beginning with this string after 3rd-party packages; comma-separated list")
 	flag.BoolVar(&options.FormatOnly, "format-only", false, "if true, don't fix imports and only format. In this mode, goimports is effectively gofmt, with the addition that imports are grouped into sections.")
+	flag.BoolVar(&options.Env.PreserveGroups, "preserve-groups", false, "if true, will not attempt to place imports belonging to the same group together")
 }
 
 func report(err error) {
@@ -264,6 +269,34 @@ func gofmtMain() {
 		fmt.Fprintf(os.Stderr, "negative tabwidth %d\n", options.TabWidth)
 		exitCode = 2
 		return
+	}
+
+	if *groupConfig != "" {
+		fileBytes, err := ioutil.ReadFile(*groupConfig)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		var groups []*imports.ImportGroup
+		if err := json.Unmarshal(fileBytes, &groups); err != nil {
+			log.Fatal(err)
+		}
+
+		for _, g := range groups {
+			g.RegexExp, err = regexp.Compile(g.Regex)
+			if err != nil {
+				log.Fatal(err)
+			}
+		}
+		sort.Sort(imports.ByImportGroupNum(groups))
+
+		if len(groups) > 0 && groups[0].Group < 1 {
+			fmt.Fprintf(os.Stderr, "import group numbers must be positive but found %d\n", groups[0].Group)
+			exitCode = 2
+			return
+		}
+
+		options.Env.ImportGroups = groups
 	}
 
 	if len(paths) == 0 {
