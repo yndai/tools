@@ -23,6 +23,11 @@ For vim, set "gofmt_command" to "goimports":
 For GoSublime, follow the steps described here:
     http://michaelwhatcott.com/gosublime-goimports/
 
+For GoLand (JetBrains), go to Preferences > Tools > File Watchers
+	and enable the goimports entry. For custom import
+	groups, edit the watcher entry and add a
+	`-group-config [path to json file]` argument.
+
 For other editors, you probably know what to do.
 
 To exclude directories in your $GOPATH from being scanned for Go
