@@ -13,7 +13,7 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/packages/packagestest"
+	"github.com/yndai/tools/go/packages/packagestest"
 )
 
 var testDebug = flag.Bool("debug", false, "enable debug output")

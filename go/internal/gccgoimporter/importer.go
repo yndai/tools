@@ -6,7 +6,7 @@
 // with the same name in $GOROOT/src/go/internal/gccgoimporter.
 
 // Package gccgoimporter implements Import for gccgo-generated object files.
-package gccgoimporter // import "golang.org/x/tools/go/internal/gccgoimporter"
+package gccgoimporter // import "github.com/yndai/tools/go/internal/gccgoimporter"
 
 import (
 	"debug/elf"
@@ -162,7 +162,9 @@ func GetImporter(searchpaths []string, initmap map[*types.Package]InitData) Impo
 			reader = rs
 			fpath = "<lookup " + pkgpath + ">"
 			// Take name from Name method (like on os.File) if present.
-			if n, ok := rc.(interface{ Name() string }); ok {
+			if n, ok := rc.(interface {
+				Name() string
+			}); ok {
 				fpath = n.Name()
 			}
 		} else {

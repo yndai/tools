@@ -21,8 +21,8 @@ import (
 	"sync"
 	"time"
 
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/go/internal/cgo"
+	"github.com/yndai/tools/go/ast/astutil"
+	"github.com/yndai/tools/go/internal/cgo"
 )
 
 var ignoreVendor build.ImportMode

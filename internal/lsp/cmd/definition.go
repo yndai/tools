@@ -12,10 +12,10 @@ import (
 	"os"
 	"strings"
 
-	guru "golang.org/x/tools/cmd/guru/serial"
-	"golang.org/x/tools/internal/lsp/protocol"
-	"golang.org/x/tools/internal/span"
-	"golang.org/x/tools/internal/tool"
+	guru "github.com/yndai/tools/cmd/guru/serial"
+	"github.com/yndai/tools/internal/lsp/protocol"
+	"github.com/yndai/tools/internal/span"
+	"github.com/yndai/tools/internal/tool"
 )
 
 // A Definition is the result of a 'definition' query.

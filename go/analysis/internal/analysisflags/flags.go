@@ -20,7 +20,7 @@ import (
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/go/analysis"
+	"github.com/yndai/tools/go/analysis"
 )
 
 // flags common to all {single,multi,unit}checkers.
@@ -175,7 +175,9 @@ func printFlags() {
 			return
 		}
 
-		b, ok := f.Value.(interface{ IsBoolFlag() bool })
+		b, ok := f.Value.(interface {
+			IsBoolFlag() bool
+		})
 		isBool := ok && b.IsBoolFlag()
 		flags = append(flags, jsonFlag{f.Name, isBool, f.Usage})
 	})

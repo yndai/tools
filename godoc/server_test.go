@@ -7,7 +7,7 @@ package godoc
 import (
 	"testing"
 
-	"golang.org/x/tools/godoc/vfs/mapfs"
+	"github.com/yndai/tools/godoc/vfs/mapfs"
 )
 
 // TestIgnoredGoFiles tests the scenario where a folder has no .go or .c files,

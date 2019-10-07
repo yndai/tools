@@ -1,7 +1,7 @@
 package badstmt
 
 import (
-	"golang.org/x/tools/internal/lsp/foo"
+	"github.com/yndai/tools/internal/lsp/foo"
 )
 
 func _() {

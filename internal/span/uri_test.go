@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/internal/span"
 )
 
 // TestURI tests the conversion between URIs and filenames. The test cases

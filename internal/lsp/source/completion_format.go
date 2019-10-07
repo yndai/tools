@@ -13,7 +13,7 @@ import (
 	"go/types"
 	"strings"
 
-	"golang.org/x/tools/internal/lsp/snippet"
+	"github.com/yndai/tools/internal/lsp/snippet"
 )
 
 // formatCompletion creates a completion item for a given types.Object.

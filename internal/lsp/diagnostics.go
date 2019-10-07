@@ -8,9 +8,9 @@ import (
 	"context"
 	"strings"
 
-	"golang.org/x/tools/internal/lsp/protocol"
-	"golang.org/x/tools/internal/lsp/source"
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/internal/lsp/protocol"
+	"github.com/yndai/tools/internal/lsp/source"
+	"github.com/yndai/tools/internal/span"
 )
 
 func (s *Server) Diagnostics(ctx context.Context, v source.View, uri span.URI) {

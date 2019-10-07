@@ -11,10 +11,10 @@ import (
 	"os"
 	"path"
 
-	"golang.org/x/tools/internal/jsonrpc2"
-	"golang.org/x/tools/internal/lsp/protocol"
-	"golang.org/x/tools/internal/lsp/source"
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/internal/jsonrpc2"
+	"github.com/yndai/tools/internal/lsp/protocol"
+	"github.com/yndai/tools/internal/lsp/source"
+	"github.com/yndai/tools/internal/span"
 )
 
 func (s *Server) initialize(ctx context.Context, params *protocol.InitializeParams) (*protocol.InitializeResult, error) {

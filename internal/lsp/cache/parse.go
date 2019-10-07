@@ -16,7 +16,7 @@ import (
 	"strings"
 	"sync"
 
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/internal/span"
 )
 
 func parseFile(fset *token.FileSet, filename string, src []byte) (*ast.File, error) {

@@ -11,11 +11,11 @@ import (
 	"go/types"
 	"strings"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/lsp/diff"
-	"golang.org/x/tools/internal/lsp/xlog"
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/go/analysis"
+	"github.com/yndai/tools/go/packages"
+	"github.com/yndai/tools/internal/lsp/diff"
+	"github.com/yndai/tools/internal/lsp/xlog"
+	"github.com/yndai/tools/internal/span"
 )
 
 // FileContents is returned from FileSystem implementation to represent the

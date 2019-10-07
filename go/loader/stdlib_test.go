@@ -22,8 +22,8 @@ import (
 	"testing"
 	"time"
 
-	"golang.org/x/tools/go/buildutil"
-	"golang.org/x/tools/go/loader"
+	"github.com/yndai/tools/go/buildutil"
+	"github.com/yndai/tools/go/loader"
 )
 
 func TestStdlib(t *testing.T) {

@@ -19,11 +19,11 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/analysis/passes/internal/analysisutil"
-	"golang.org/x/tools/go/ast/inspector"
-	"golang.org/x/tools/go/types/typeutil"
+	"github.com/yndai/tools/go/analysis"
+	"github.com/yndai/tools/go/analysis/passes/inspect"
+	"github.com/yndai/tools/go/analysis/passes/internal/analysisutil"
+	"github.com/yndai/tools/go/ast/inspector"
+	"github.com/yndai/tools/go/types/typeutil"
 )
 
 func init() {

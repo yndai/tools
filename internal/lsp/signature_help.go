@@ -7,9 +7,9 @@ package lsp
 import (
 	"context"
 
-	"golang.org/x/tools/internal/lsp/protocol"
-	"golang.org/x/tools/internal/lsp/source"
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/internal/lsp/protocol"
+	"github.com/yndai/tools/internal/lsp/source"
+	"github.com/yndai/tools/internal/span"
 )
 
 func (s *Server) signatureHelp(ctx context.Context, params *protocol.TextDocumentPositionParams) (*protocol.SignatureHelp, error) {

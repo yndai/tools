@@ -12,7 +12,7 @@ import (
 	"go/token"
 	"go/types"
 
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/internal/span"
 )
 
 type SymbolKind int

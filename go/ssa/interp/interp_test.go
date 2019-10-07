@@ -27,10 +27,10 @@ import (
 	"testing"
 	"time"
 
-	"golang.org/x/tools/go/loader"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/ssa/interp"
-	"golang.org/x/tools/go/ssa/ssautil"
+	"github.com/yndai/tools/go/loader"
+	"github.com/yndai/tools/go/ssa"
+	"github.com/yndai/tools/go/ssa/interp"
+	"github.com/yndai/tools/go/ssa/ssautil"
 )
 
 // Each line contains a space-separated list of $GOROOT/test/

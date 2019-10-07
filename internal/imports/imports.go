@@ -23,7 +23,7 @@ import (
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/go/ast/astutil"
+	"github.com/yndai/tools/go/ast/astutil"
 )
 
 // Options is golang.org/x/tools/imports.Options with extra internal-only options.

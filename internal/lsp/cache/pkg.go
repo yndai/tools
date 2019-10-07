@@ -11,9 +11,9 @@ import (
 	"sort"
 	"sync"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/lsp/source"
+	"github.com/yndai/tools/go/analysis"
+	"github.com/yndai/tools/go/packages"
+	"github.com/yndai/tools/internal/lsp/source"
 )
 
 // pkg contains the type information needed by the source package.

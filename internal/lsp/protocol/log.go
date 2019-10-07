@@ -3,7 +3,7 @@ package protocol
 import (
 	"context"
 
-	"golang.org/x/tools/internal/lsp/xlog"
+	"github.com/yndai/tools/internal/lsp/xlog"
 )
 
 // logSink implements xlog.Sink in terms of the LogMessage call to a client.

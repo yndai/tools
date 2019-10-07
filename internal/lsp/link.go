@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"golang.org/x/tools/internal/lsp/protocol"
-	"golang.org/x/tools/internal/span"
+	"github.com/yndai/tools/internal/lsp/protocol"
+	"github.com/yndai/tools/internal/span"
 )
 
 func (s *Server) documentLink(ctx context.Context, params *protocol.DocumentLinkParams) ([]protocol.DocumentLink, error) {

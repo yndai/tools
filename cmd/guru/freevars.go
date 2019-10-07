@@ -12,8 +12,8 @@ import (
 	"go/types"
 	"sort"
 
-	"golang.org/x/tools/cmd/guru/serial"
-	"golang.org/x/tools/go/loader"
+	"github.com/yndai/tools/cmd/guru/serial"
+	"github.com/yndai/tools/go/loader"
 )
 
 // freevars displays the lexical (not package-level) free variables of

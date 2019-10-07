@@ -22,8 +22,8 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/packages/packagestest"
+	"github.com/yndai/tools/go/packages"
+	"github.com/yndai/tools/go/packages/packagestest"
 )
 
 // TODO(adonovan): more test cases to write:

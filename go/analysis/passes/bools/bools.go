@@ -11,10 +11,10 @@ import (
 	"go/token"
 	"go/types"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/analysis/passes/internal/analysisutil"
-	"golang.org/x/tools/go/ast/inspector"
+	"github.com/yndai/tools/go/analysis"
+	"github.com/yndai/tools/go/analysis/passes/inspect"
+	"github.com/yndai/tools/go/analysis/passes/internal/analysisutil"
+	"github.com/yndai/tools/go/ast/inspector"
 )
 
 var Analyzer = &analysis.Analyzer{

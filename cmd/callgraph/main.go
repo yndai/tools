@@ -4,7 +4,7 @@
 
 // callgraph: a tool for reporting the call graph of a Go program.
 // See Usage for details, or run with -help.
-package main // import "golang.org/x/tools/cmd/callgraph"
+package main // import "github.com/yndai/tools/cmd/callgraph"
 
 // TODO(adonovan):
 //
@@ -32,15 +32,15 @@ import (
 	"runtime"
 	"text/template"
 
-	"golang.org/x/tools/go/buildutil"
-	"golang.org/x/tools/go/callgraph"
-	"golang.org/x/tools/go/callgraph/cha"
-	"golang.org/x/tools/go/callgraph/rta"
-	"golang.org/x/tools/go/callgraph/static"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/pointer"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/ssa/ssautil"
+	"github.com/yndai/tools/go/buildutil"
+	"github.com/yndai/tools/go/callgraph"
+	"github.com/yndai/tools/go/callgraph/cha"
+	"github.com/yndai/tools/go/callgraph/rta"
+	"github.com/yndai/tools/go/callgraph/static"
+	"github.com/yndai/tools/go/packages"
+	"github.com/yndai/tools/go/pointer"
+	"github.com/yndai/tools/go/ssa"
+	"github.com/yndai/tools/go/ssa/ssautil"
 )
 
 // flags

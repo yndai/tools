@@ -25,7 +25,7 @@ import (
 	"sort"
 	"strings"
 
-	"golang.org/x/tools/internal/imports"
+	"github.com/yndai/tools/internal/imports"
 )
 
 var (

@@ -98,7 +98,7 @@ import (
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/go/loader"
+	"github.com/yndai/tools/go/loader"
 )
 
 var (

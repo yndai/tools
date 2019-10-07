@@ -13,9 +13,9 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/packages/packagestest"
-	"golang.org/x/tools/internal/lsp/cmd"
-	"golang.org/x/tools/internal/lsp/tests"
+	"github.com/yndai/tools/go/packages/packagestest"
+	"github.com/yndai/tools/internal/lsp/cmd"
+	"github.com/yndai/tools/internal/lsp/tests"
 )
 
 var isRace = false

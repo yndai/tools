@@ -23,7 +23,7 @@ godef/a/a.go:7:6-7: defined here as A string //@A
 A string //@A
 
 -- AImport-definition --
-godef/b/b.go:5:2-3: defined here as package a ("golang.org/x/tools/internal/lsp/godef/a")
+godef/b/b.go:5:2-3: defined here as package a ("github.com/yndai/tools/internal/lsp/godef/a")
 
 -- AImport-definition-json --
 {
@@ -40,11 +40,11 @@ godef/b/b.go:5:2-3: defined here as package a ("golang.org/x/tools/internal/lsp/
 			"offset": 122
 		}
 	},
-	"description": "package a (\"golang.org/x/tools/internal/lsp/godef/a\")"
+	"description": "package a (\"github.com/yndai/tools/internal/lsp/godef/a\")"
 }
 
 -- AImport-hover --
-package a ("golang.org/x/tools/internal/lsp/godef/a")
+package a ("github.com/yndai/tools/internal/lsp/godef/a")
 -- PackageFoo-definition --
 foo/foo.go:1:9-12: defined here as 
 -- PackageFoo-definition-json --

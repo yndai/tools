@@ -12,8 +12,8 @@ import (
 	"go/token"
 	"go/types"
 
-	"golang.org/x/tools/go/loader"
-	"golang.org/x/tools/refactor/satisfy"
+	"github.com/yndai/tools/go/loader"
+	"github.com/yndai/tools/refactor/satisfy"
 )
 
 // errorf reports an error (e.g. conflict) and prevents file modification.

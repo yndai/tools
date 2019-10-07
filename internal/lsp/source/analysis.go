@@ -18,8 +18,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/yndai/tools/go/analysis"
 	"golang.org/x/sync/errgroup"
-	"golang.org/x/tools/go/analysis"
 )
 
 func analyze(ctx context.Context, v View, pkgs []Package, analyzers []*analysis.Analyzer) ([]*Action, error) {

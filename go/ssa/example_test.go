@@ -14,9 +14,9 @@ import (
 	"log"
 	"os"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/ssa/ssautil"
+	"github.com/yndai/tools/go/packages"
+	"github.com/yndai/tools/go/ssa"
+	"github.com/yndai/tools/go/ssa/ssautil"
 )
 
 const hello = `

@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"golang.org/x/tools/go/packages/packagestest"
+	"github.com/yndai/tools/go/packages/packagestest"
 )
 
 func TestModulesExport(t *testing.T) {

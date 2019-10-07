@@ -34,13 +34,13 @@ import (
 	"runtime"
 	"strings"
 
-	"golang.org/x/tools/godoc"
-	"golang.org/x/tools/godoc/analysis"
-	"golang.org/x/tools/godoc/static"
-	"golang.org/x/tools/godoc/vfs"
-	"golang.org/x/tools/godoc/vfs/gatefs"
-	"golang.org/x/tools/godoc/vfs/mapfs"
-	"golang.org/x/tools/godoc/vfs/zipfs"
+	"github.com/yndai/tools/godoc"
+	"github.com/yndai/tools/godoc/analysis"
+	"github.com/yndai/tools/godoc/static"
+	"github.com/yndai/tools/godoc/vfs"
+	"github.com/yndai/tools/godoc/vfs/gatefs"
+	"github.com/yndai/tools/godoc/vfs/mapfs"
+	"github.com/yndai/tools/godoc/vfs/zipfs"
 )
 
 const defaultAddr = "localhost:6060" // default webserver address
